@@ -18,7 +18,20 @@ class phMagickCmd{
 
 	protected function _appendToCmd($cmd)
 	{
-		$this->_cmd[]= $cmd;
+		$args = func_get_args();
+		foreach ( $args as $cmd) 
+		{
+			if( is_a($cmd, 'phMagickCmd') )
+			{
+				$this->_cmd[] = $cmd->get();
+			}
+			else
+			{
+				$this->_cmd[]= $cmd;
+			}
+		}
+		
+		
 	}
 
 	/**
@@ -31,6 +44,7 @@ class phMagickCmd{
 	 */
 	function set($parameter, $value = '', $quotes = TRUE)
 	{
+		
 		if ( strlen($value) > 0 )
 		{
 			if ( TRUE == $quotes )
@@ -38,10 +52,10 @@ class phMagickCmd{
 				$value = '"' . $value . '"';
 			}
 
-			$value = ' ' . $value;
+			$value =  $value;
 		}
 
-		$this->_appendToCmd($parameter . $value);
+		$this->_appendToCmd($parameter , $value);
 		return $this;
 	}
 
@@ -82,6 +96,6 @@ class phMagickCmd{
 	 */
 	function get()
 	{
-		return implode(' ', $this->_cmd);
+		return trim(implode(' ', $this->_cmd));
 	}
 }

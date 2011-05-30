@@ -24,8 +24,9 @@ class PhMagick{
     private $_pluginManager = NULL;
     private $_debug         = FALSE;
     private $_cli           = NULL;
-    private $_logger        = NULL
-    ;
+    private $_logger        = NULL;
+    private $_behaviours 	= Array();
+    
     function __construct($source ='', $dest='')
     {
         //TODO: move creation of this objects outside PhMagick and inject them as dependency, maybe using a settings class
@@ -129,6 +130,36 @@ class PhMagick{
         return $this;
     }
 
+    /**
+     * 
+     * adds "behaviours" to phMagick, a behaviour is nothing more than a command
+     * that is included in the middle of another command.
+     * For example the quality, you can set quality(80) and it will be included 
+     * in the correct place by the plugin
+     * @param String $name the behaviour name
+     * @param phMagickCmd $cmd the command
+     */
+    function addBehaviour ($name, phMagickCmd $cmd)
+    {
+    	$this->_behaviours[$name] = $cmd;
+    }
+    
+    /**
+     * 
+     * Enter description here ...
+     * @param String $name the behaviour name
+     * @return phMagickCmd
+     */
+    function getBehaviour($name)
+    {
+    	if(! key_exists($name, $this->_behaviours))
+    	{
+    		return new phMagickCmd();
+    	}
+    	
+    	return $this->_behaviours[$name];
+    }
+    
     /**
      * Gets the path to image being manipulated
      */
