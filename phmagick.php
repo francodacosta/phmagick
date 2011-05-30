@@ -141,7 +141,11 @@ class PhMagick{
      */
     function addBehaviour ($name, phMagickCmd $cmd)
     {
-    	$this->_behaviours[$name] = $cmd;
+        if (!key_exists($name, $this->_behaviours))
+        {
+            $this->_behaviours[$name] = array();
+        }
+    	$this->_behaviours[$name][] = $cmd;
     }
     
     /**

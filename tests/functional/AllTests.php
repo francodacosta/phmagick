@@ -34,6 +34,8 @@ echo "</p>";
 include 'tests/resize.php';
 include 'tests/tile.php';
 include 'tests/border.php';
+include 'tests/optimizations.php';
+include 'tests/color.php';
 ?>
 <p>
 Kiwi image By Andr&eacute; Karwath aka Aka (Own work) [CC-BY-SA-2.5 (www.creativecommons.org/licenses/by-sa/2.5)], via Wikimedia Commons

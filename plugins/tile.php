@@ -41,7 +41,9 @@ class PhMagick_tile
 
         $cmd->option($binary)
             ->param('-geometry', 'x+0+0')
-            ->param('-tile', $columns . 'x' . $rows);
+            ->param('-tile', $columns . 'x' . $rows)
+            ->set($p->getBehaviour('image-optimizations'))
+        ;
 
         foreach($images as $image)
         {
@@ -52,5 +54,7 @@ class PhMagick_tile
         $cmd->file($dest);
 
         $p->execute($cmd);
+        $p->setSourceFile($dest);
+        return $p;
     }
 }

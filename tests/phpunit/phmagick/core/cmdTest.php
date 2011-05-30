@@ -98,11 +98,15 @@ class cmdTest extends PHPUnit_Framework_TestCase
 	{
 		$o = $this->obj;
 		$merge = new phMagickCmd();
-		
+		$merge1 = new phMagickCmd();
 		$o->param('orig', 'orig_value');
 		$merge->param('merge', 'merge_value');
 		$o->set($merge);
 		
 		$this->assertEquals('orig "orig_value" merge "merge_value"', $o->get());
+                
+                $merge1->param('merge1', 'merge1_value');
+		$o->set($merge1);
+		$this->assertEquals('orig "orig_value" merge "merge_value" merge1 "merge1_value"', $o->get());
 	}
 }

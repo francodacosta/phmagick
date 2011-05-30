@@ -14,7 +14,7 @@ class phMagickCmd{
 	private $_sourceFile = NULL;
 	private $_destFile   = NULL;
 	private $_binary     = NULL;
-	private $_cmd		 = array();
+	private $_cmd        = array();
 
 	protected function _appendToCmd($cmd)
 	{
@@ -25,7 +25,7 @@ class phMagickCmd{
 			{
 				$this->_cmd[] = $cmd->get();
 			}
-			else
+			elseif (is_string ($cmd) && (strlen($cmd) > 0 ) )
 			{
 				$this->_cmd[]= $cmd;
 			}

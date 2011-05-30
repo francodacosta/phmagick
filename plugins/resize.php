@@ -27,12 +27,14 @@ class PhMagick_resize
         $h = $height == 0 ? '' : $height ;
 
         $cmd->option($binary)
-            ->set('', $source, true)
+            ->file($source)
+            ->set($p->getBehaviour('image-optimizations'))
             ->param('-scale', $w . 'x' . $h)
-            ->option('-strip')
-            ->set('', $dest, true)
+            ->file($dest)
         ;
 
         $p->execute($cmd);
+        $p->setSourceFile($dest);
+        return $p;
     }
 }

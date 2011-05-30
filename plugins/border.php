@@ -22,11 +22,14 @@ class PhMagick_border
 
         $cmd->option($binary)
             ->set('', $source, true)
+            ->set($p->getBehaviour('image-optimizations'))
             ->param('-bordercolor', $color)
             ->param('-border', $size)
             ->set('', $dest, true)
         ;
 
         $p->execute($cmd);
+        $p->setSourceFile($dest);
+        return $p;
     }
 }
