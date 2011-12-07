@@ -1,5 +1,18 @@
 <?php
 
+
+namespace phMagick;
+
+use phMagick\Core\AutoLoad;
+
+require __DIR__ . '/' . 'Core/autoload.php';
+
+$autoLoader = new AutoLoad();
+$autoLoader->setClassPath('phMagick' , __DIR__);
+
+
+return ;
+
 $bp = realpath(dirname(__FILE__));
 $ds = DIRECTORY_SEPARATOR;
 require_once  $bp . $ds . 'core' . $ds . 'log.php';
@@ -26,7 +39,7 @@ class PhMagick{
     private $_cli           = NULL;
     private $_logger        = NULL;
     private $_behaviours 	= Array();
-    
+
     function __construct($source ='', $dest='')
     {
         //TODO: move creation of this objects outside PhMagick and inject them as dependency, maybe using a settings class
@@ -131,10 +144,10 @@ class PhMagick{
     }
 
     /**
-     * 
+     *
      * adds "behaviours" to phMagick, a behaviour is nothing more than a command
      * that is included in the middle of another command.
-     * For example the quality, you can set quality(80) and it will be included 
+     * For example the quality, you can set quality(80) and it will be included
      * in the correct place by the plugin
      * @param String $name the behaviour name
      * @param phMagickCmd $cmd the command
@@ -147,9 +160,9 @@ class PhMagick{
         }
     	$this->_behaviours[$name][] = $cmd;
     }
-    
+
     /**
-     * 
+     *
      * Enter description here ...
      * @param String $name the behaviour name
      * @return phMagickCmd
@@ -160,10 +173,10 @@ class PhMagick{
     	{
     		return new phMagickCmd();
     	}
-    	
+
     	return $this->_behaviours[$name];
     }
-    
+
     /**
      * Gets the path to image being manipulated
      */
@@ -272,9 +285,6 @@ class PhMagick{
 
             throw new PhMagickException_CliError ($msg);
         }
-
-
-
 
         return $ret ;
     }

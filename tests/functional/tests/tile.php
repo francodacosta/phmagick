@@ -5,7 +5,7 @@ $result1 = 'results/tile_result_1.jpg';
 $result2 = 'results/tile_result_2.jpg';
 $result3 = 'results/tile_result_3.jpg';
 
-$p = &new phmagick($kiwi,  $tst_image);
+$p = &new phmagick($kiwi100,  $tst_image);
 $p->debug();
 $p->resize(100,100);
 

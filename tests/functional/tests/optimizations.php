@@ -4,18 +4,22 @@ $result = 'results/optmz_1.jpg';
 $result2 = 'results/optmz_2.jpg';
 $result3 = 'results/optmz_3.jpg';
 
-$p = &new phmagick($kiwi,  $result);
-$p->quality(30);
-$p->resize(100,100);
+$p = &new phmagick($kiwi100,  $result);
+$p->debug()
+  ->quality(10)
+;
 
+$p = &new phmagick($kiwi100,  $result);
 $p->destination($result2)
   ->debug()
-  ->resize(300, 100);
+  ->quality(90)
+;
 
+$p = &new phmagick($kiwi100,  $result);
 $p->destination($result3)
   ->debug()
-  ->resize(200);
-
+  ->quality(90)
+;
 ?>
 
 <table class="results">

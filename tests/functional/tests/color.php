@@ -2,23 +2,28 @@
 <?php
 $result = 'results/darken.jpg';
 $result2 = 'results/brighten.jpg';
-$result3 = 'results/optmz_3.jpg';
+$result3 = 'results/greyscale.jpg';
+$result4 = 'results/invertcolors.jpg';
 
-$p = &new phmagick($kiwi,  $result);
-$p->resize(100,100)
-  ->debug()
+$p = &new phmagick($kiwi100,  $result);
+$p->debug()
+  ->darken()
 ;
 
-$p = &new phmagick($kiwi,  $result2);
+$p = &new phmagick($kiwi100,  $result2);
 $p->debug()
-  ->resize(100, 100)
   ->brighten(30)        
 ;
 
-$p->destination($result3)
-  ->debug()
-  ->resize(200);
+$p = &new phmagick($kiwi100,  $result3);
+$p->debug()
+  ->toGreyScale()
+;
 
+$p = &new phmagick($kiwi100,  $result4);
+$p->debug()
+  ->invertColors()
+;
 ?>
 
 <table class="results">
@@ -32,6 +37,9 @@ $p->destination($result3)
 		<td>
 			<img src="<?php echo $result3;?>">
 		</td>
+                <td>
+			<img src="<?php echo $result4;?>">
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -43,7 +51,11 @@ $p->destination($result3)
 		</td>
 
 		<td>
-			quality 90 stripped metadata:
+			Greyscale:
+		</td>
+                
+                <td>
+			Invert colors:
 		</td>
 
 	</tr>

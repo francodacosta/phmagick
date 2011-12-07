@@ -44,7 +44,7 @@ class PhMagick_color
      * Darkens an image by the given percentage
      * @param int $alphaPercent the percentage by which the image will be darkened
      */
-    function darken(PhMagick $p, $alphaPercent)
+    function darken(PhMagick $p, $alphaPercent = 30)
     {
         return $p->colorize($alphaPercent, 'black');
     }
@@ -54,9 +54,55 @@ class PhMagick_color
      * Brighten an image by the given percentage
      * @param int $alphaPercent the percentage by which the image will be darkened
      */
-    function brighten(PhMagick $p, $alphaPercent)
+    function brighten(PhMagick $p, $alphaPercent = 30)
     {
         return $p->colorize($alphaPercent, 'white');
     }
+    
+    /**
+     *
+     * converts an imagem to grey scale
+     */
+    function toGreyScale(phmagick $p, $enhance=2){
+        $cmd    = new PhMagickCmd();
+        $binary = $p->binary() . 'convert';
+        $source = $p->source();
+        $dest   = $p->destination();
+        
+        $cmd->option($binary)
+            ->param('-modulate', '100,0')
+            ->param('-sigmoidal-contrast', $enhance.'x50%')
+            ->param('-background', 'none') 
+            ->file($source)
+            ->file($dest)
+        ;
+
+        $p->execute($cmd);
+        $p->setSourceFile($dest);
+        return  $p ;
+    }
+    
+    /**
+     *
+     * inverts image colors
+     */
+    function invertColors(phmagick $p){
+        
+        $cmd    = new PhMagickCmd();
+        $binary = $p->binary() . 'convert';
+        $source = $p->source();
+        $dest   = $p->destination();
+        
+        $cmd->option($binary)
+            ->file($source)    
+            ->option('-negate')
+            ->file($dest)
+        ;
+
+        $p->execute($cmd);
+        $p->setSourceFile($dest);
+        return  $p ;
+    }
+    
     
 }

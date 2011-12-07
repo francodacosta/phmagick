@@ -6,11 +6,8 @@ $result2 = 'results/border_2.jpg';
 $result3 = 'results/border_3.jpg';
 
 
-$p = &new phmagick($kiwi,  $test);
+$p = &new phmagick($kiwi100,  $test);
 $p->debug();
-$p->resize(300,300);
-
-$p->source($test);
 $p->destination($result1)
   ->debug()
   ->border();

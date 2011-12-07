@@ -28,7 +28,6 @@ class PhMagick_resize
 
         $cmd->option($binary)
             ->file($source)
-            ->set($p->getBehaviour('image-optimizations'))
             ->param('-scale', $w . 'x' . $h)
             ->file($dest)
         ;

@@ -12,7 +12,8 @@
 <?php
 require_once '../../phmagick.php';
 
-$kiwi = './data/500px-Kiwi_aka.jpg';
+$kiwi    = './data/500px-Kiwi_aka.jpg';
+$kiwi100 = 'results/resize_100_100.jpg';
 
 /* Cleanup old tests */
 $files = glob('results/*.*');

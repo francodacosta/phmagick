@@ -12,21 +12,15 @@
          stopOnFailure="false"
          stopOnIncomplete="false"
          stopOnSkipped="false"
-         syntaxCheck="false"
+         syntaxCheck="true"
          testSuiteLoaderClass="PHPUnit_Runner_StandardTestSuiteLoader"
          strict="false"
-         verbose="false"
+         verbose="true"
          bootstrap="bootstrap.php"
          >
 	<testsuites>
 		<testsuite name="Core PhMagick">
-			<directory>phmagick</directory>
-			<!-- <file>core/logTest.php</file>
-			<file>core/cliTest.php</file>
-			<file>core/cmdTest.php</file>
-			<file>core/fileTest.php</file>
-			<file>core/coreTest.php</file>
-			<file>core/plugin_managerTest.php</file> -->
+			<directory>phMagick</directory>
 		</testsuite>
 	</testsuites>
 </phpunit>
