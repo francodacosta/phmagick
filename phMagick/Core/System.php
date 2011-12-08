@@ -1,65 +1,61 @@
 <?php
-namespace phMagick\Core;
-
-use phMagick\Core\Exception\SystemException;
+namespace phMagck\Core;
 
 class System
 {
-    private $logger;
-    private $debug;
+    private $actions = array();
+    private $runner = null;
+    private $settings = null;
+    private $logger = null;
 
-    public function setLogger(Logger $logger)
+    public function getRunner()
     {
-        $this->logger = $logger;
+        $settings = $this->getSettings();
+        $logger   = $this->getLogger();
+
+        $runner = $this->getVar('runner');
+        $system->setDebug($settings->isDebug());
+        $system->setLogger($logger);
+        return $runner;
     }
 
-    function isWindows()
+    public function getLogger()
     {
-        return ( !(strstr(PHP_OS,'WIN') === FALSE) );
+        return $this->getVar('logger');
     }
 
-    function debug($value = TRUE)
+    public function getSettings()
     {
-        $this->debug = $value;
-        return $this;
+        $settings = new Settings();
+        return $settings->getInstance();
     }
 
-    function debugMode()
-    {
-        return $this->debug ;
-    }
-
-    public function execute(Command $cmdCls)
-    {
-        $ret = null ;
-        $out = array();
-        $log = $this->getLogger();
-        $cmd = $cmdCls->get();
-
-        if($this->isWindows()) {
-            $cmd= str_replace    ('(','\(',$cmd);
-            $cmd= str_replace    (')','\)',$cmd);
+    private function getVar($name) {
+        if (is_null($this->$var)) {
+            $class = ucfirst($var);
+            $this->$var = &new $class();
         }
 
-        exec( $cmd .' 2>&1', $out, $ret);
-        $log->append(
-            array(
-                'cmd' => $cmd
-                ,'return' => $ret
-                ,'output' => $out
-            )
-        );
+        return $this->$var;
+    }
 
-        if($ret != 0) {
-            $msg = 'Error #' . $ret . ' while executing "' . $cmd . '"';
+    /**
+     * Adds an action to the action stack
+     * @param Action $action
+     */
+    public function add(Action $action)
+    {
+        $this->actions[] = $action;
+    }
 
-            if ($this->debugMode()) {
-                $msg .= "\n Debug Log: \n" . $log->toString();
-            }
+    /**
+     *
+     * Executes the actions on the stack
+     * destination of one action becomes the source of another action, so we
+     * can chain several actions together
+     */
+    public function execute()
+    {
 
-            throw new SystemException ($msg);
-        }
-
-        return $ret ;
     }
 }

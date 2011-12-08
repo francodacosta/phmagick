@@ -1,2 +1,2 @@
 <?php
-include_once '../../phmagick.php';
+require __DIR__ . '/../../phMagick/phMagick.php';
