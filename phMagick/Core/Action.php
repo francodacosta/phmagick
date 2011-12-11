@@ -8,7 +8,6 @@ Abstract class Action
 {
     private $source;
     private $destination;
-    private $command;
 
     public function __construct($source, $destination)
     {
@@ -38,10 +37,8 @@ Abstract class Action
         return $this->destination;
     }
 
-    public function getCommand()
+    abstract function getCommand()
     {
-        $command = $this->getVar('command');
-        return $command;
     }
 
     private function getVar($name) {
@@ -53,7 +50,4 @@ Abstract class Action
         return $this->$var;
     }
 
-    abstract function execute()
-    {
-    }
 }
