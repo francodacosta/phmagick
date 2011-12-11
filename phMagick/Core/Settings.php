@@ -1,8 +1,8 @@
 <?php
-namespace phMagck\Core;
+namespace phMagick\Core;
 use phMagick\Core\Path;
 
-final class Settings
+class Settings
 {
     static private $instance = null;
     private $binaryPath = null;
@@ -10,9 +10,11 @@ final class Settings
 
     public function getInstance()
     {
-        if (is_null(self::$instance)){
+        if (is_null(self::$instance)) {
             self::$instance = new Settings();
         }
+
+        return self::$instance;
     }
 
     public function setImagemagickBinaryPath($path)
@@ -20,7 +22,7 @@ final class Settings
         $this->binaryPath = new Path($path);
     }
 
-    public function setImagemagickBinaryPath()
+    public function getImagemagickBinaryPath()
     {
         if (is_null($this->binaryPath)) {
             $this->binaryPath = new Path();

@@ -33,6 +33,7 @@ class Proportional extends Action
     }
 
     public function getWidth()
+
     {
         return $this->width;
     }

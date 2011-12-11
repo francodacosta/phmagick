@@ -1,8 +1,9 @@
 <?php
 
-use phMagick\Core\Logger;
+namespace phMagick\Core;
 
-class loggerTest extends PHPUnit_Framework_TestCase
+class loggerTest extends \
+PHPUnit_Framework_TestCase
 {
 	private $obj;
 
