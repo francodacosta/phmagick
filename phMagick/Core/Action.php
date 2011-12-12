@@ -39,13 +39,4 @@ Abstract class Action
         return $this->destination;
     }
 
-    private function getVar($name) {
-        if (is_null($this->$var)) {
-            $class = ucfirst($var);
-            $this->$var = &new $class();
-        }
-
-        return $this->$var;
-    }
-
 }

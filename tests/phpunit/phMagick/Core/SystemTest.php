@@ -1,8 +1,7 @@
 <?php
-namespace phMagck\Core;
+namespace phMagick\Core;
 
 
-require_once '/home/nuno/projects/web/phmagick/trunk/phMagick/Core/System.php';
 
 /**
  * Test class for System.
@@ -32,64 +31,43 @@ class SystemTest extends \PHPUnit_Framework_TestCase
     {
     }
 
-    /**
-     * @covers {className}::{origMethodName}
-     * @todo Implement testGetRunner().
-     */
     public function testGetRunner()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $this->assertTrue($this->object->getRunner() instanceof \phMagick\Core\Runner);
     }
 
-    /**
-     * @covers {className}::{origMethodName}
-     * @todo Implement testGetLogger().
-     */
     public function testGetLogger()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $this->assertTrue($this->object->getLogger() instanceof \phMagick\Core\Logger);
     }
 
-    /**
-     * @covers {className}::{origMethodName}
-     * @todo Implement testGetSettings().
-     */
     public function testGetSettings()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $this->assertTrue($this->object->getSettings() instanceof \phMagick\Core\Settings);
     }
 
-    /**
-     * @covers {className}::{origMethodName}
-     * @todo Implement testAdd().
-     */
-    public function testAdd()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    }
+//     /**
+//      * @covers {className}::{origMethodName}
+//      * @todo Implement testAdd().
+//      */
+//     public function testAdd()
+//     {
+//         // Remove the following lines when you implement this test.
+//         $this->markTestIncomplete(
+//           'This test has not been implemented yet.'
+//         );
+//     }
 
-    /**
-     * @covers {className}::{origMethodName}
-     * @todo Implement testExecute().
-     */
-    public function testExecute()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    }
+//     /**
+//      * @covers {className}::{origMethodName}
+//      * @todo Implement testExecute().
+//      */
+//     public function testExecute()
+//     {
+//         // Remove the following lines when you implement this test.
+//         $this->markTestIncomplete(
+//           'This test has not been implemented yet.'
+//         );
+//     }
 }
 ?>

@@ -28,7 +28,7 @@ class ActionCollectionTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->object = new ActionCollection;
+        $this->object = new ActionCollection();
         $this->action = new ActionMock(null,null);
     }
 
@@ -42,7 +42,6 @@ class ActionCollectionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers {className}::{origMethodName}
      */
 
     public function testAdd()
@@ -54,8 +53,6 @@ class ActionCollectionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers {className}::{origMethodName}
-     * @todo Implement testGet().
      */
 
     public function testGet()

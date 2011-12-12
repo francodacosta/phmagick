@@ -1,7 +1,7 @@
 <?php
 namespace phMagick\Core;
-
-class Logger {
+class Logger
+{
 
     protected $_log = array();
 
@@ -17,8 +17,7 @@ class Logger {
 
     function getAt($id)
     {
-        if ( key_exists($id, $this->_log))
-        {
+        if (key_exists($id, $this->_log)) {
             return $this->_log[$id];
         }
 
@@ -27,22 +26,29 @@ class Logger {
 
     function get()
     {
-        return $this->_log ;
+        return $this->_log;
     }
 
+    /**
+     *
+     * @todo: revise this crap, arrays are not working properly (or the tests are screwed)
+     *
+     */
 
     protected function _toString($data)
     {
         $ret = '';
 
-        foreach($data as $k => $v)
-        {
-            if( is_array($v)){
+        if (!is_array($data)) {
+            $data = array($data);
+        }
+
+        foreach ($data as $k => $v) {
+
+            if (is_array($v)) {
                 $ret .= $k . ":\n" . $this->_toString($v);
-            }
-            else
-            {
-               $ret .= "$k : $v\n";
+            } else {
+                $ret .= "$v\n";
             }
 
         }
@@ -53,9 +59,9 @@ class Logger {
     function __toString()
     {
         $data = $this->get();
+
         $ret = '';
-        foreach( $data as $d)
-        {
+        foreach ($data as $d) {
             $ret .= $this->_toString($d);
         }
         return $ret;

@@ -1,5 +1,5 @@
 <?php
-namespace phMagck\Core;
+namespace phMagick\Core;
 
 class System
 {
@@ -12,10 +12,10 @@ class System
     {
         $settings = $this->getSettings();
         $logger   = $this->getLogger();
-
         $runner = $this->getVar('runner');
-        $system->setDebug($settings->isDebug());
-        $system->setLogger($logger);
+
+        $runner->debug($settings->isDebug());
+        $runner->setLogger($logger);
         return $runner;
     }
 
@@ -26,17 +26,17 @@ class System
 
     public function getSettings()
     {
-        $settings = new Settings();
+        $settings = $this->getVar('settings');
         return $settings->getInstance();
     }
 
     private function getVar($name) {
-        if (is_null($this->$var)) {
-            $class = ucfirst($var);
-            $this->$var = &new $class();
+        if (is_null($this->$name)) {
+            $class = 'phMagick\Core\\' . ucfirst($name);
+            $this->$name = &new $class();
         }
 
-        return $this->$var;
+        return $this->$name;
     }
 
     /**

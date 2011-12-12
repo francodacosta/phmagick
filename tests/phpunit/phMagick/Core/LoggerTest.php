@@ -49,4 +49,29 @@ PHPUnit_Framework_TestCase
 	    $this->assertSame(array(), $o->get());
 	}
 
+	function test__ToString()
+	{
+	    $o = $this->obj;
+
+	    $o->append(0);
+	    $o->append(1);
+	    $o->append(2);
+
+	    $str = ''. $o ;
+	    $this->assertEquals("0\n1\n2\n", $str);
+	}
+
+// 	function test__ToString_withArray()
+// 	{
+// 	    $o = $this->obj;
+
+// 	    $o->append(0);
+// 	    $o->append(1);
+// 	    $o->append(array(0,1));
+
+// 	    $str = ''. $o ;
+// 	    echo "#$str#";
+// 	    $this->assertEquals("0\n1\n2\n", $str);
+// 	}
+
 }
