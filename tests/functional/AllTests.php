@@ -1,20 +1,5 @@
-<h1>phMagick functional Tests</h1>
-<style>
-
-	table.results {
-		border: 1px solid #000;
-	}
-
-	table.results td {
-		padding: 0 20px 0 20px;
-	}
-</style>
+<h1>phMagick self documenting tests</h1>
 <?php
-require_once '../../phmagick.php';
-
-$kiwi    = './data/500px-Kiwi_aka.jpg';
-$kiwi100 = 'results/resize_100_100.jpg';
-
 /* Cleanup old tests */
 $files = glob('results/*.*');
 
@@ -25,19 +10,19 @@ foreach($files as $f)
     echo '.';
 }
 echo "</p>";
-?>
 
-<h1>Original Image</h1>
-<img src="<?php echo $kiwi;?>">
+require 'bootstrap.php';
 
-<?php
+use fTest\TestRunner;
+use tests\Core\Resize\Porportional;
+use tests\Core\Resize\Stretch;
 
-include 'tests/resize.php';
-include 'tests/tile.php';
-include 'tests/border.php';
-include 'tests/optimizations.php';
-include 'tests/color.php';
-?>
-<p>
-Kiwi image By Andr&eacute; Karwath aka Aka (Own work) [CC-BY-SA-2.5 (www.creativecommons.org/licenses/by-sa/2.5)], via Wikimedia Commons
-</p>
+
+
+$runner = new TestRunner();
+
+$runner->add(new Porportional());
+$runner->add(new Stretch());
+
+$runner->run();
+

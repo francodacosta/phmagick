@@ -9,7 +9,7 @@ Abstract class Action
     private $source;
     private $destination;
 
-    abstract function getCommand();
+    abstract function getShellCommand();
 
     public function __construct($source, $destination)
     {

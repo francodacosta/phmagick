@@ -102,7 +102,7 @@ Class Command
         $binary = $this->getBinaryBase();
         $binary->add($name);
 
-        return $this->option($binary);
+        return $this->option($name);
     }
     /**
      * Sets an Parameter
@@ -129,7 +129,7 @@ Class Command
     /**
     * returns the shell command, ready to be used in the command line
     */
-    function getShellCommand()
+    function toString()
     {
         return trim(implode(' ', $this->_cmd));
     }

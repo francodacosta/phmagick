@@ -7,9 +7,27 @@ class Runner extends ActionCollection
     private $logger;
     private $debug;
 
-    public function setLogger(Logger $logger)
+    private $settings = null;
+
+
+    public function getLogger()
     {
-        $this->logger = $logger;
+        return $this->getVar('logger');
+    }
+
+    public function getSettings()
+    {
+        $settings = $this->getVar('settings');
+        return $settings->getInstance();
+    }
+
+    private function getVar($name) {
+        if (is_null($this->$name)) {
+            $class = 'phMagick\Core\\' . ucfirst($name);
+            $this->$name = &new $class();
+        }
+
+        return $this->$name;
     }
 
     function isWindows()
@@ -33,7 +51,7 @@ class Runner extends ActionCollection
         $ret = null;
         $out = array();
         $log = $this->getLogger();
-        $cmd = $cmdCls->get();
+        $cmd = $cmdCls->toString();
 
         if ($this->isWindows()) {
             $cmd = str_replace('(', '\(', $cmd);
@@ -47,7 +65,7 @@ class Runner extends ActionCollection
             $msg = 'Error #' . $ret . ' while executing "' . $cmd . '"';
 
             if ($this->debugMode()) {
-                $msg .= "\n Debug Log: \n" . $log->toString();
+                $msg .= "\n Debug Log: \n" . $log;
             }
 
             throw new SystemException($msg);
@@ -66,7 +84,7 @@ class Runner extends ActionCollection
                 $action->setSource($destination);
             }
 
-            $this->execute($action->getCmd());
+            $this->execute($action->getShellCommand());
             $destination = $action->getDestination();
         }
     }

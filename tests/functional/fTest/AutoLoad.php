@@ -1,5 +1,5 @@
 <?php
-namespace phMagick\Core;
+namespace fTest;
 
 class AutoLoad
 {
