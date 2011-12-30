@@ -10,10 +10,11 @@ use phMagick\Core\Command;
  * while keeping the aspect ratio so the final image might not have the
  * exact dimentions requested but the closest dimentions possible
  *
- * @param Integer $width, the new width
- * @param Integet $height, the new height, defaults to 0
+ * @package action
+ * @subpackage resize
+ * @author nuno
  */
-class Proportional extends Base
+class Proportional extends \phMagick\Action\Resize\Base
 {
 
     public function getShellCommand()

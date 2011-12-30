@@ -1,5 +1,5 @@
 <?php
-namespace phMAgick\Core\Exception;
+namespace phMagick\Core\Exception;
 
 class Exception extends \Exception
 {

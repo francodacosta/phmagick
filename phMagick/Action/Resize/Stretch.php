@@ -4,15 +4,20 @@ use phMagick\Core\Command;
 /**
  *
  * Fixed resize of images.
+ *
  * The image will be streched to the exact dimentions provided aspect ratio
  * will not be preserved
  *
- * @param Integer $width, the new width
- * @param Integet $height, the new height
+ * @package action
+ * @subpackage resize
  */
 class Stretch extends Base
 {
 
+    /**
+     * gets the shell command to be executed
+     * @see phMagick\Core.Action::getShellCommand()
+     */
     public function getShellCommand()
     {
         $command = new Command();
