@@ -144,7 +144,6 @@ class SimpleCrop extends Action
     public function getShellCommand()
     {
         $command = new Command();
-        $watermark = $this->getWatermarkImage();
 
         $width = $this->getWidth();
         if (is_null($width)) {
@@ -158,11 +157,11 @@ class SimpleCrop extends Action
 
         $top = $this->getTop();
         $left = $this->getLeft();
-
-        $command->binary('comvert')
+        $gravity = $this->getGravity();
+        $command->binary('convert')
                 ->file($this->getSource())
                 ->param('-gravity', $gravity, true)
-                ->param('-grop', $width . 'x' . $height . '+' . $left . '+' . $top)
+                ->param('-crop', $width . 'x' . $height . '+' . $left . '+' . $top)
                 ->file($this->getDestination());
 
 

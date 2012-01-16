@@ -41,6 +41,7 @@ use fTest\TestRunner;
 use tests\Action\Resize\Porportional;
 use tests\Action\Resize\Stretch;
 use tests\Action\Watermark;
+use tests\Action\SimpleCrop;
 
 
 $runner = new TestRunner();
@@ -48,6 +49,7 @@ $runner = new TestRunner();
 $runner->add(new Porportional());
 $runner->add(new Stretch());
 $runner->add(new Watermark());
+$runner->add(new SimpleCrop());
 
 
 $runner->run();
