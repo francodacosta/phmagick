@@ -1,42 +1,42 @@
 <?php
-namespace tests\Action\Resize;
-use fTest\TestCase;
+use fTest\Test\AbstractTest;
+use fTest\Test\Result\Success;
+use fTest\Test\Result\Failure;
 
-class Stretch extends TestCase
+class Stretch extends AbstractTest
 {
     private $originalFile = 'data/500px-Kiwi_aka.jpg';
     private $newFile =  'results/stretch_50_200.jpg';
 
+    public function configure()
+    {
+        $this->setName('Resize: Strech');
+        $this->setTitle("Thumbnails");
+        $this->setDescription("
+            Resizes an image ignoring aspect ratio
+        ");
+    }
     public function test()
     {
         $phMagick = new \phMagick\Core\Runner();
+
         $resizeAction = new \phMagick\Action\Resize\Stretch($this->originalFile, $this->newFile);
         $resizeAction->setWidth(50);
         $resizeAction->setHeight(200);;
 
-        $phMagick->debug(true);
         $phMagick->run($resizeAction);
     }
 
-    public function checkResults()
+    public function checkTestResult()
     {
-        return file_exists($this->newFile);
+        return file_exists($this->newFile) ? new Success: new Failure;
     }
 
     public function renderResults()
     {
         ?>
+            <img src="<?php echo $this->newFile?>">
+       <?php
 
-                <h2>Stretch Resize</h2>
-                <div class="test">
-                    <p class="defenition">resize an image ignoring aspect ratio</p>
-
-                    <h3>code:</h3>
-                    <div class="code php"><?php echo nl2br($this->getTestCode()) ?></div>
-                    <h3>result:</h3>
-                    <img src="<?php echo $this->newFile?>">
-                </div>
-           <?php
-
-        }
+    }
 }
