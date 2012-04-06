@@ -27,7 +27,7 @@ class Porportional extends AbstractTest
 
         $resizeAction = new \phMagick\Action\Resize\Proportional($this->originalFile, $this->newFile);
         $resizeAction->setWidth(100);
-
+$phMagick->debug(true);
         $phMagick->run($resizeAction);
     }
 
