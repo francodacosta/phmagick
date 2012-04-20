@@ -15,6 +15,11 @@ class Runner extends ActionCollection
         return $this->getVar('logger');
     }
 
+    public function setLogger(Logger $logger)
+    {
+        return $this->logger = $logger;
+    }
+
     public function getSettings()
     {
         $settings = $this->getVar('settings');

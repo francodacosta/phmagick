@@ -4,7 +4,7 @@ namespace phMagick\Core;
 class ActionMock extends Action
 {
 
-    public function getCommand()
+    public function getShellCommand()
     {
 
     }

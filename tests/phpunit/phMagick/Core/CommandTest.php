@@ -15,7 +15,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
 		$o = $this->obj;
 
 		$o->set('param', 'value', true);
-		$this->assertEquals('param "value"', $o->getShellCommand());
+		$this->assertEquals('param "value"', $o);
 	}
 
 	function testSetWithoutQuotes()
@@ -23,7 +23,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
 		$o = $this->obj;
 
 		$o->set('param', 'value', false);
-		$this->assertEquals('param value', $o->getShellCommand());
+		$this->assertEquals('param value', $o);
 	}
 
 	/**
@@ -34,7 +34,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
 		$o = $this->obj;
 
 		$o->param('param', 'value', true);
-		$this->assertEquals('param "value"', $o->getShellCommand());
+		$this->assertEquals('param "value"', $o);
 	}
 
 	/**
@@ -45,7 +45,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
 		$o = $this->obj;
 
 		$o->param('param', 'value', false);
-		$this->assertEquals('param value', $o->getShellCommand());
+		$this->assertEquals('param value', $o);
 	}
 
 	/**
@@ -60,7 +60,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
 		$o->param('param', 'value', false);
 		$o->param('param', 'value', true);
 
-		$this->assertEquals('param value param "value"', $o->getShellCommand());
+		$this->assertEquals('param value param "value"', $o);
 	}
 
 	function testOption()
@@ -68,7 +68,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
 		$o = $this->obj;
 
 		$o->option('option');
-		$this->assertEquals('option', $o->getShellCommand());
+		$this->assertEquals('option', $o);
 	}
 
 	function testFile()
@@ -76,7 +76,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
 		$o = $this->obj;
 
 		$o->file('file');
-		$this->assertEquals('"file"', $o->getShellCommand());
+		$this->assertEquals('"file"', $o);
 	}
 
 	/**
@@ -90,7 +90,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
 		$o->param('p','v');
 		$o->option('o');
 
-		$this->assertEquals('p "v" o', $o->getShellCommand());
+		$this->assertEquals('p "v" o', $o);
 	}
 	/**
      * @depends testOptionsAndParameters
@@ -104,10 +104,10 @@ class CommandTest extends \PHPUnit_Framework_TestCase
 		$merge->param('merge', 'merge_value');
 		$o->set($merge);
 
-		$this->assertEquals('orig "orig_value" merge "merge_value"', $o->getShellCommand());
+		$this->assertEquals('orig "orig_value" merge "merge_value"', $o);
 
                 $merge1->param('merge1', 'merge1_value');
 		$o->set($merge1);
-		$this->assertEquals('orig "orig_value" merge "merge_value" merge1 "merge1_value"', $o->getShellCommand());
+		$this->assertEquals('orig "orig_value" merge "merge_value"  merge1 "merge1_value"', $o->toString());
 	}
 }

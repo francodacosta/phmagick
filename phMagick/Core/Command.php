@@ -134,6 +134,11 @@ Class Command
         return trim(implode(' ', $this->_cmd));
     }
 
+    public function __toString()
+    {
+        return $this->toString();
+    }
+
     /*
      *
     *  Private methods
@@ -157,14 +162,14 @@ Class Command
         $args = func_get_args();
         foreach ( $args as $cmd)
         {
-            if( is_a($cmd, 'phMagick\Core\Command') )
-            {
-                $this->_cmd[] = $cmd->getShellCommand();
-            }
-            elseif (is_string ($cmd) && (strlen($cmd) > 0 ) )
-            {
+//             if( is_a($cmd, 'phMagick\Core\Command') )
+//             {
+//                 $this->_cmd[] = $cmd-();
+//             }
+//             elseif (is_string ($cmd) && (strlen($cmd) > 0 ) )
+//             {
                 $this->_cmd[]= $cmd;
-            }
+//             }
         }
     }
 }

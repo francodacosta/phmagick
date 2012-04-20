@@ -8,7 +8,7 @@ namespace phMagick\Core;
 class foo extends Action
 {
 
-    public function getCommand()
+    public function getShellCommand()
     {
         return true;
     }
@@ -54,7 +54,7 @@ class ActionTest extends \PHPUnit_Framework_TestCase
 
     public function testGetCommand()
     {
-        $this->assertTrue($this->object->getCommand());
+        $this->assertTrue($this->object->getShellCommand());
     }
 }
 ?>
