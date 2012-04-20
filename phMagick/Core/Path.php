@@ -39,16 +39,13 @@ class Path
         }
 
 
-        if ( strrpos($dirname, DIRECTORY_SEPARATOR) < strlen($dirname))
-        {
-            $dirname .= DIRECTORY_SEPARATOR;
-        }
+        $dirname = rtrim($dirname, DIRECTORY_SEPARATOR);
+        $dirname .= DIRECTORY_SEPARATOR;
 
 
         $path = $dirname . $file ;
 
         $path = str_replace(' ','\ ',$path) ;
-
         $this->setPath($path);
         return $path;
     }

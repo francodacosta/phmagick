@@ -146,10 +146,10 @@ Class Command
     */
     protected function toPathObject($path)
     {
-        if (is_null($path)) {
-            return new Path();
-        }
-        if (is_a($path, 'Path')) {
+//         if (is_null($path)) {
+//             return new Path();
+//         }
+        if ($path instanceof \phMagick\Core\Path) {
             return $path;
         }
 

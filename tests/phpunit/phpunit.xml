@@ -19,7 +19,7 @@
          bootstrap="bootstrap.php"
          >
 	<testsuites>
-		<testsuite name="Core PhMagick">
+		<testsuite name="Core">
 			<directory>phMagick</directory>
 		</testsuite>
 	</testsuites>

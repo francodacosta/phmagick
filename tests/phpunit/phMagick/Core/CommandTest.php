@@ -122,4 +122,27 @@ class CommandTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($p, $o->getBinaryBase());
 
 	}
+
+    public function testGetSource()
+	{
+	    $path = new Path(realpath(__DIR__ . '/../../fixtures'));
+	    $o = new Command($path->format());
+	    $this->assertEquals($path->format(), $o->getSource()->format());
+
+	    $o = new Command($path);
+	    $this->assertEquals($path, $o->getSource());
+	}
+
+	public function testGetDestination()
+	{
+	    $path = new Path(realpath(__DIR__ . '/../../fixtures'));
+	    $o = new Command(null, $path->format());
+	    $this->assertEquals($path->format(), $o->getDestination()->format());
+	}
+
+	public function testBinary()
+	{
+	    $o = $this->obj;
+	    $this->assertEquals('foo', $o->binary('foo'));
+	}
 }
