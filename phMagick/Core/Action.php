@@ -22,15 +22,15 @@ Abstract class Action
      * @var array[string]
      */
     protected $gravityValues = array(
-    	'northwest',
-    	'north',
-    	'northeast',
-    	'west',
-    	'center',
-    	'east',
-    	'southwest',
-    	'south',
-    	'southeast'
+        'northwest',
+        'north',
+        'northeast',
+        'west',
+        'center',
+        'east',
+        'southwest',
+        'south',
+        'southeast'
     );
 
     /**
@@ -39,7 +39,7 @@ Abstract class Action
      * @param String  $gravity
      * @return Boolean
      */
-    protected function isValidGravity($gravity)
+    public function isValidGravity($gravity)
     {
         return in_array(strtolower($gravity), $this->gravityValues);
     }

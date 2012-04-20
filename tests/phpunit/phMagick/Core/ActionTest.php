@@ -56,5 +56,32 @@ class ActionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertTrue($this->object->getShellCommand());
     }
+    /**
+     * @dataProvider getGravityValues
+     */
+    public function testIsValidGravity($value)
+    {
+        $o = $this->object;
+        $this->assertTrue($o->isValidGravity($value), "'$value' is not a valid gravity");
+    }
+
+    public function testIsValidGravity_NotValid()
+    {
+        $o = $this->object;
+        $this->assertFalse($o->isValidGravity('asdasdasd'));
+    }
+    public static function getGravityValues()
+    {
+        return array(
+            array('northwest'),
+            array('north'),
+            array('northeast'),
+            array('west'),
+            array('center'),
+            array('east'),
+            array('southwest'),
+            array('south'),
+            array('southeast')
+        );
+    }
 }
-?>

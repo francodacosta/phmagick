@@ -55,7 +55,13 @@ class Path
 
     public function __toString()
     {
-        return $this->format();
+        try {
+            $ret = $this->format();
+        } Catch (\Exception $e) {
+            $ret = '';
+        }
+
+        return $ret;
     }
 
     function up()

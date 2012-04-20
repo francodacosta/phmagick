@@ -110,4 +110,16 @@ class CommandTest extends \PHPUnit_Framework_TestCase
 		$o->set($merge1);
 		$this->assertEquals('orig "orig_value" merge "merge_value"  merge1 "merge1_value"', $o->toString());
 	}
+
+	public function testSetGetBinaryBase()
+	{
+        $o = $this->obj;
+
+        $this->assertTrue($o->getBinaryBase() instanceof \phMagick\Core\Path);
+
+        $p = new Path();
+        $o->setBinaryBase($p);
+        $this->assertSame($p, $o->getBinaryBase());
+
+	}
 }
