@@ -1,7 +1,7 @@
 <?php
 use  phMagick\Core\Path;
 
-class pathTest extends PHPUnit_Framework_TestCase
+class pathTest extends \PHPUnit_Framework_TestCase
 {
 	private $obj;
 
