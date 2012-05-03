@@ -1,0 +1,11 @@
+{
+    "name": "phMagick",
+    "version": "6.0.0",
+    "description": "image manipulation with php and ImageMagick",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/francodacosta/phmagick"
+        }
+    ]
+}

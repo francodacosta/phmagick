@@ -18,7 +18,7 @@ phMagick comes with its own simple autoloader, so you can use it out of the box
 **using the phMagick autoloader**
 
         <?php
-            include 'phmagick.php';
+            include '<path to phmagick>/phmagick.php';
 
  phMagick uses namespaces and respects the [PSR-0][psr-0] standard so you can use any modern autoloader to load phMagick classes
 
