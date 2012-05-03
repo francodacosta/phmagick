@@ -1,5 +1,6 @@
 {
-    "name": "phMagick",
+    "name": "francodacosta/phMagick",
+    "type": "library",
     "version": "6.0.0",
     "description": "image manipulation with php and ImageMagick",
     "repositories": [
