@@ -1,4 +1,4 @@
-[![Flattr Button](http://api.flattr.com/button/button-compact-static-100x17.png "Flattr This!")](https://github.com/francodacosta/phmagick "phMagick")
+[![Flattr Button](http://api.flattr.com/button/button-compact-static-100x17.png "Flattr This!")](https://flattr.com/submit/auto?url=https://github.com/francodacosta/phmagick "phMagick")
 
 #phMagick#
 
@@ -7,7 +7,7 @@ phMagick wraps the most common image manipulation actions a web developer needs 
 
 ##Instalation##
 
-* Install it via composer
+* Install it via [composer][composer]
 * Clone this repo, the code is inside phMagick folder
 
 
@@ -32,3 +32,4 @@ phMagick comes with its own simple autoloader, so you can use it out of the box
 
 [1]: http://phmagick.org/documentation
 [psr-0]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
+[composer]: http://packagist.org/
