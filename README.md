@@ -1,23 +1,29 @@
-#phMagick
+[![Flattr Button](http://api.flattr.com/button/button-compact-static-100x17.png "Flattr This!")](https://github.com/francodacosta/phmagick "phMagick")
+
+#phMagick#
+
 _Image manipulation with php and imagemagick_
 phMagick wraps the most common image manipulation actions a web developer needs into easy to use code.
 
-##Instalation
+##Instalation##
 
 * Install it via composer
 * Clone this repo, the code is inside phMagick folder
 
-##Configuration
-phMagick comes with its own simple autoloader but it respects the [PSR-0][psr-0] standard so you can use it with any autoloader 
+
+##Configuration##
+
+phMagick comes with its own simple autoloader, so you can use it out of the box 
 
 **using the phMagick autoloader**
 
         <?php
             include 'phmagick.php';
 
-This is all you need to start using phMagick
+ phMagick uses namespaces and respects the [PSR-0][psr-0] standard so you can use any modern autoloader to load phMagick classes
 
-##Code Samples
+
+##Code Samples##
     
 * Point your browser to docs/index.htm
 * Or visit [phMagick.org][1]
