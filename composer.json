@@ -21,5 +21,11 @@
             "type": "vcs",
             "url": "https://github.com/francodacosta/phmagick"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": {
+            "phMagick": "francodacosta"
+        }
+    }
+    
 }
