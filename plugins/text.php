@@ -52,6 +52,9 @@ class phMagick_text{
         if ($format->fontSize !== false)
             $cmd .= ' -pointsize ' . $format->fontSize ;
 
+        if ($format->width || $format->height)
+            $cmd .= ' -size ' . $format->width . 'x' . $format->height;
+
         if (($format->pText != '') && ($text = '') )
             $text = $format->pText ;
 

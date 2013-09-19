@@ -266,6 +266,11 @@ class phMagickTextObject {
     protected $fontSize;
     protected $font;
 
+    //If font size isn't specified
+    //it may be specified by the width / height
+    protected $width;
+    protected $height;
+
     protected $color;
     protected $background;
 
@@ -300,7 +305,15 @@ class phMagickTextObject {
         phMagickTextObjectDefaults::$gravity = $value;
     }
 
+    function width($w) {
+        $this->width = $w;
+        return $this;
+    }
 
+    function height($h) {
+        $this->height = $h;
+        return $this;
+    }
 
     function fontSize($i){
         $this->fontSize = $i ;
