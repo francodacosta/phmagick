@@ -1,0 +1,27 @@
+{
+    "name": "francodacosta/phMagick",
+    "type": "library",
+    "description": "image manipulation with php and ImageMagick",
+    "keywords": ["ImageMagick","Image manipulation", "thumbnail", "resize", "image resize", "gd", "imagemagick", "imagick"],
+    "homepage": "http://www.phmagick.org",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nuno Costa",
+            "email": "nuno@francodacosta.com",
+            "homepage": "http://www.francodacosta.com"
+        },
+        {
+            "name": "Dustin Thomson",
+            "email": "dthomson@51systems.com",
+            "homepage": "http://www.51systems.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "classmap" : ["phmagick.php"]
+    }
+
+}
