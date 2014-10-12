@@ -4,4 +4,4 @@ php:
   - 5.4
 install:
    - composer install --no-dev
-script: "phpunit -c tests/phpunit"
+script: "cd tests/phpunit; phpunit"
