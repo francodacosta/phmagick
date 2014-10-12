@@ -1,5 +1,7 @@
 [![Flattr Button](http://api.flattr.com/button/button-compact-static-100x17.png "Flattr This!")](https://flattr.com/submit/auto?url=https://github.com/francodacosta/phmagick "phMagick")
-
+[![Build Status](https://travis-ci.org/francodacosta/phmagick.svg)](https://travis-ci.org/francodacosta/phmagick)
+[![Total Downloads](https://poser.pugx.org/francodacosta/phmagick/downloads.svg)](https://packagist.org/packages/francodacosta/phmagick)
+[![License](https://poser.pugx.org/francodacosta/phmagick/license.svg)](https://packagist.org/packages/francodacosta/phmagick)
 #phMagick#
 
 _Image manipulation with php and imagemagick_
