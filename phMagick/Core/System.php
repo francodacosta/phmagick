@@ -33,7 +33,7 @@ class System
     private function getVar($name) {
         if (is_null($this->$name)) {
             $class = 'phMagick\Core\\' . ucfirst($name);
-            $this->$name = &new $class();
+            $this->$name = new $class();
         }
 
         return $this->$name;
