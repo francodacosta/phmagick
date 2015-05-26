@@ -4,7 +4,7 @@
     "version": "6.0.0",
     "description": "image manipulation with php and ImageMagick",
     "keywords": ["ImageMagick","Image manipulation", "thumbnail", "resize", "image resize", "gd", "imagemagick", "imagick"],
-    "homepage": "http://www.phmagick.org",
+    "homepage": "https://github.com/francodacosta/phmagick",
     "license": "MIT",
     "authors": [
         {
