@@ -2,7 +2,8 @@
 [![Build Status](https://travis-ci.org/francodacosta/phmagick.svg)](https://travis-ci.org/francodacosta/phmagick)
 [![Total Downloads](https://poser.pugx.org/francodacosta/phmagick/downloads.svg)](https://packagist.org/packages/francodacosta/phmagick)
 [![License](https://poser.pugx.org/francodacosta/phmagick/license.svg)](https://packagist.org/packages/francodacosta/phmagick)
-#phMagick#
+
+#phMagick
 
 _Image manipulation with php and imagemagick_
 phMagick wraps the most common image manipulation actions a web developer needs into easy to use code.
