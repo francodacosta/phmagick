@@ -1,7 +1,9 @@
 <?php
 namespace phMagick\Action;
+
 use phMagick\Core\Action;
 use phMagick\Core\Command;
+
 /**
  *
  * Crops an image
@@ -25,9 +27,8 @@ class SimpleCrop extends Action
     /**
      * Gets the watermark image positioning
      * @see http://www.imagemagick.org/script/command-line-options.php#gravity
-     * @return String
+     * @return string
      */
-
     public function getGravity()
     {
         return $this->gravity;
@@ -38,17 +39,18 @@ class SimpleCrop extends Action
      * @see http://www.imagemagick.org/script/command-line-options.php#gravity
      * @param String $gravity
      */
-
     public function setGravity($gravity)
     {
         if (!$this->isValidGravity($gravity)) {
-            throw new \InvalidArgumentException('gravity value is not valid');
+            throw new \InvalidArgumentException('Crop: gravity value is not valid');
         }
         $this->gravity = $gravity;
+
+        return $this;
     }
 
     /**
-     * @return the Integer
+     * @return int
      */
 
     public function getWidth()
@@ -57,88 +59,78 @@ class SimpleCrop extends Action
     }
 
     /**
-     * @param Integer $width
+     * @param int $width
      */
-
     public function setWidth($width)
     {
-        if (! is_int($width)) {
-            throw new \InvalidArgumentException('width must be an integer');
-        }
+        $width = (int)$width;
 
-        if (! $width > 0) {
-            throw new \InvalidArgumentException('width must greater than 0');
+        if ($width <= 0) {
+            throw new \InvalidArgumentException('Crop: width must greater than 0');
         }
         $this->width = $width;
+
+        return $this;
     }
 
     /**
-     * @return the Integer
+     * @return int
      */
-
     public function getHeight()
     {
         return $this->height;
     }
 
     /**
-     * @param Integer $height
+     * @param int $height
      */
-
     public function setHeight($height)
     {
-        if (! is_int($height)) {
-            throw new \InvalidArgumentException('height must be an integer');
-        }
+        $height = (int)$height;
 
-        if (! $height > 0) {
-            throw new \InvalidArgumentException('height must greater than 0');
+        if ($height <= 0) {
+            throw new \InvalidArgumentException('Crop: height must greater than 0');
         }
 
         $this->height = $height;
+
+        return $this;
     }
 
     /**
-     * @return the Integer
+     * @return int
      */
-
     public function getTop()
     {
         return $this->top;
     }
 
     /**
-     * @param Integer $top
+     * @param int $top
      */
-
     public function setTop($top)
     {
-        if (! is_int($top)) {
-            throw new \InvalidArgumentException('top must be an integer');
-        }
+        $this->top = (int)$top;
 
-        $this->top = $top;
+        return $this;
     }
 
     /**
-     * @return the Integer
+     * @return int
      */
-
     public function getLeft()
     {
         return $this->left;
     }
 
     /**
-     * @param Integer $left
+     * @param int $left
      */
-
     public function setLeft($left)
     {
-        if (! is_int($left)) {
-            throw new \InvalidArgumentException('left must be an integer');
-        }
-        $this->left = $left;
+        $this->left = (int)$left;
+
+        return $this;
     }
 
     public function getShellCommand()
@@ -147,25 +139,24 @@ class SimpleCrop extends Action
 
         $width = $this->getWidth();
         if (is_null($width)) {
-            throw new \InvalidArgumentException('please specify width');
+            throw new \InvalidArgumentException('Crop: please specify width');
         }
 
         $height = $this->getHeight();
         if (is_null($height)) {
-            throw new \InvalidArgumentException('please specify height');
+            throw new \InvalidArgumentException('Crop: please specify height');
         }
 
         $top = $this->getTop();
         $left = $this->getLeft();
         $gravity = $this->getGravity();
-        $command->binary('convert')
-                ->file($this->getSource())
-                ->param('-gravity', $gravity, true)
-                ->param('-crop', $width . 'x' . $height . '+' . $left . '+' . $top)
-                ->file($this->getDestination());
-
+        $command
+            ->binary('convert')
+            ->file($this->getSource())
+            ->param('-gravity', $gravity, true)
+            ->param('-crop', $width . 'x' . $height . '+' . $left . '+' . $top)
+            ->file($this->getDestination());
 
         return $command;
     }
-
 }

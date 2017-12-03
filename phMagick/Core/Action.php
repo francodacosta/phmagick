@@ -1,9 +1,6 @@
 <?php
 namespace phMagick\Core;
 
-// not needed, just added here for clarity
-use phMagick\Core\Command;
-
 /**
  *
  * Base class for phMagick Action
