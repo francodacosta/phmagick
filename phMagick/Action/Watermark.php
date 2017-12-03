@@ -1,7 +1,9 @@
 <?php
 namespace phMagick\Action;
+
 use phMagick\Core\Action;
 use phMagick\Core\Command;
+
 /**
  *
  * Watermarks an image
@@ -22,10 +24,9 @@ class Watermark extends Action
      * Gets the path to the watermark image
      * @return String
      */
-
     public function getWatermarkImage()
     {
-        return $this->watermark;
+        return $this->watermarkImage;
     }
 
     /**
@@ -33,18 +34,18 @@ class Watermark extends Action
      * Sets the path to the watermark image
      * @param String $watermark
      */
-
     public function setWatermarkImage($watermark)
     {
-        $this->watermark = $watermark;
+        $this->watermarkImage = $watermark;
+
+        return $this;
     }
 
- /**
+    /**
      * Gets the watermark image positioning
      * @see http://www.imagemagick.org/script/command-line-options.php#gravity
      * @return String
      */
-
     public function getGravity()
     {
         return $this->gravity;
@@ -61,13 +62,14 @@ class Watermark extends Action
             throw new \InvalidArgumentException('gravity value is not valid');
         }
         $this->gravity = $gravity;
+
+        return $this;
     }
 
     /**
      * gets the watermark image transparency
      * @return Integer
      */
-
     public function getTransparency()
     {
         return $this->transparency;
@@ -77,16 +79,15 @@ class Watermark extends Action
      * Sets the watermark image transparency
      * @param Integer $transparency an integer from 0 to 100
      */
-
     public function setTransparency($transparency)
     {
-        if (! is_int($transparency)) {
-            throw new \InvalidArgumentException('transparency must be an Integer');
-        }
         if ($transparency < 0 || $transparency > 100) {
             throw new \InvalidArgumentException('transparency must be between 0 and 100');
         }
-        $this->transparency = $transparency;
+
+        $this->transparency = (int)$transparency;
+
+        return $this;
     }
 
     public function getShellCommand()
@@ -105,5 +106,4 @@ class Watermark extends Action
 
         return $command;
     }
-
 }
