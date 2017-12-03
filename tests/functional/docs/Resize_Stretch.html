@@ -43,7 +43,7 @@ just drop us a line
 ">Creating Watermarks</a>
         </li>
             <li>
-            <a href="Resize_Stretch.html
+            <a href="    Resize_Stretch.html
 ">Thumbnails</a>
         </li>
             <li>
@@ -59,7 +59,30 @@ just drop us a line
     </ul>                </div>
 
                 <div class="content">
-                                    </div>
+                    <div class="test Resize: Strech">
+    <a name="test.Resize: Strech"></a>
+    <h2 class="">Thumbnails</h2>
+        <p class="description"><br />
+            Resizes an image ignoring aspect ratio<br />
+        </p>
+
+
+                <img src="results/stretch_50_200.jpg">
+
+    <div class="codeContainer">
+        <h3 class="code"><a href="#">Code:</a></h3>
+        <pre class="code brush: php;">        $phMagick = new \phMagick\Core\Runner();
+
+        $resizeAction = new \phMagick\Action\Resize\Stretch($this-&gt;originalFile, $this-&gt;newFile);
+        $resizeAction-&gt;setWidth(50);
+        $resizeAction-&gt;setHeight(200);;
+
+        $phMagick-&gt;run($resizeAction);
+</pre>
+    </div>
+</div>
+
+                </div>
             </div>
                                 <script type="text/javascript" src="./asset/js/ftest-all-min.js"></script>
 
